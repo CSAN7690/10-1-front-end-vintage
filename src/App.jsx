@@ -18,7 +18,7 @@ function App() {
         
         {/* Routes */}
         <Routes>
-          <Route path="/" exact component={IndexPage} />
+          <Route path="/" component={IndexPage} />
           <Route path="/show/:id" component={ShowPage} />
           <Route path="/create" component= {CreatePage} />
           <Route path="edit/:id" component={EditPage} />
