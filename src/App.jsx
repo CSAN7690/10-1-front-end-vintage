@@ -1,32 +1,28 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import IndexPage from './IndexPage';
-import ShowPage from './ShowPage';
-import CreatePage from './CreatePage';
-import EditPage from './EditPage'
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import IndexPage from './Components/indexPage';
+import CreatePage from './Components/CreatePage';
 import HomePage from "./Components/HomePage.jsx"
 import ShowPage from './Components/showPage';
 import NavBar from './Components/NavBar';
 import EditPage from './Components/EditPage';
+
+import './App.css';
+
 function App() {
   return (
     <Router>
       <div>
 
-        {/* Navigation Bar */}
-        <nav>
-          <Link to="/">home</Link>
-          <Link to="/create">createNewResource</Link>
-        </nav>
-
+        < NavBar />
+        
         {/* Routes */}
-        <Switch>
+        <Routes>
           <Route path="/" exact component={IndexPage} />
           <Route path="/show/:id" component={ShowPage} />
-          <Route path="/create" component={CreatePage} />
+          <Route path="/create" component= {CreatePage} />
           <Route path="edit/:id" component={EditPage} />
-        </Switch>
+        </Routes>
       </div>
     </Router>
   );

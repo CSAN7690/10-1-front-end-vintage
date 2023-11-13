@@ -1,11 +1,11 @@
 import React from 'react';
 
-function EditPage(props) {
+function CreatePage(props) {
     return (
         <div>
-           EditPage 
+            createPage
         </div>
     );
 }
 
-export default EditPage;
+export default CreatePage;
