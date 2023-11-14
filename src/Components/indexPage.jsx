@@ -1,16 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
+const API = import.meta.env.VITE_BASE_URL
 
 const IndexPage = () => {
-    const resources = [];
+
+    const [vintageClothing, setVintageClothing] = useState([])
+
+    useEffect(() => {
+        fetch(`${API}/vintage`)
+            .then((response) => {
+                return response.json();
+            })
+            .then((responseJSON) => {
+                setVintageClothing(responseJSON);
+            })
+            .catch((error) => console.error(error));
+    }, []);
+
     return (
         <div>
             <h1>Index Page</h1>
             {/* Display resources */}
             <ul>
-                {resources.map((resource) => (
-                    <li key={resource.id}>
-                        <Link to={`/show/${resource.id}`}>{resource.name}</Link>
+                {vintageClothing.map((item) => (
+                    <li key={item.id}>
+                        <Link to={`/show/${item.id}`}>{item.name}</Link>
                     </li>
                 ))}
             </ul>

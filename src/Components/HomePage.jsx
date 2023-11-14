@@ -1,5 +1,5 @@
-export default function HomePage(){
-    return(
+export default function HomePage() {
+    return (
         <div>Welcome to Vintage Retro Connect</div>
     )
 }

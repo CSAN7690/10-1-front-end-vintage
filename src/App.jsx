@@ -6,6 +6,7 @@ import HomePage from "./Components/HomePage.jsx"
 import ShowPage from './Components/Showpage';
 import NavBar from './Components/NavBar';
 import EditPage from './Components/EditPage';
+import ErrorPage from './Components/ErrorPage.jsx';
 
 import './App.css';
 
@@ -18,10 +19,11 @@ function App() {
 
         {/* Routes */}
         <Routes>
-          <Route path="/" component={IndexPage} />
-          <Route path="/show/:id" component={ShowPage} />
-          <Route path="/create" component={CreatePage} />
-          <Route path="edit/:id" component={EditPage} />
+          <Route path="/" element={<IndexPage />} />
+          <Route path="/show/:id" element={<ShowPage />} />
+          <Route path="/create" element={<CreatePage />} />
+          <Route path="edit/:id" element={<EditPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
     </Router>
