@@ -28,7 +28,7 @@ const IndexPage = () => {
             <ul>
                 {vintageClothing.map((vintage) => (
                     <li key={vintage.id}>
-                        <Link to={`/vintage/shows/${vintage.id}`}>{vintage.name}{vintage.style}
+                        <Link to={`/vintage/shows/${vintage.id}`}>{vintage.name}{vintage.style}{vintage.category}
                         </Link>
                     </li>
                 ))}
