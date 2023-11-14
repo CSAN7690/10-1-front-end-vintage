@@ -5,11 +5,11 @@ export default function NavBar() {
     return (
         <nav>
             <h1>
-                <Link to={"/vintage_dev"}>Vintage App</Link>
+                <Link to={"/vintage"}>Vintage App</Link>
 
             </h1>
             <button>
-                <Link to={"/vintage/new"}></Link>
+                <Link to={"/vintage/create"}>New item</Link>
             </button>
         </nav>
     )

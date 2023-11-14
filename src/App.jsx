@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import IndexPage from './Components/indexPage';
 import CreatePage from './Components/CreatePage';
 import HomePage from "./Components/HomePage.jsx"
@@ -10,7 +10,14 @@ import ErrorPage from './Components/ErrorPage.jsx';
 
 import './App.css';
 
-function App() {
+
+
+  
+
+  function App() {
+
+
+
   return (
     <Router>
       <div>
@@ -19,10 +26,11 @@ function App() {
 
         {/* Routes */}
         <Routes>
-          <Route path="/" element={<IndexPage />} />
-          <Route path="/show/:id" element={<ShowPage />} />
-          <Route path="/create" element={<CreatePage />} />
-          <Route path="edit/:id" element={<EditPage />} />
+          <Route path='/' element={<HomePage />}/>
+          <Route path="/vintage" element={<IndexPage />} />
+          <Route path="/vintage/shows/:id" element={<ShowPage />} />
+          <Route path="/vintage/create" element={<CreatePage />} />
+          <Route path="/vintage/edit/:id" element={<EditPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
