@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import './indexPage.css'
 
 const API = import.meta.env.VITE_BASE_URL
 
@@ -26,7 +27,7 @@ const IndexPage = () => {
             <ul>
                 {vintageClothing.map((item) => (
                     <li key={item.id}>
-                        <Link to={`/show/${item.id}`}>{item.name}</Link>
+                        <Link to={`/show/${item.id}`}>{item.name}{item.style}</Link>
                     </li>
                 ))}
             </ul>
