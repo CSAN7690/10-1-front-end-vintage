@@ -1,36 +1,31 @@
-import axios from "axios";
-import {v4 as uuidv4} from "uuid"
 import {useState}from "react"
 import { useNavigate } from "react-router-dom";
 
 
 function CreatePage() {
-    const [formData, setFormData] = useState({
+    const [vintageData, setVintageData] = useState({
         
         name: "",
         style: "",
         category: "",
         price: "",
     });
-    const [submitForm, setSubmitForm] = useState("")
+    
 
     const apiURL= (`http://localhost:4005`);
      const navigate =useNavigate()
 
-    const handleChange = (event) => {
-        setFormData({
-            ...formData,
+    const handleTextChange = (event) => {
+        setVintageData({
+            ...vintageData,
             [event.target.id]: event.target.value
         });
    
     
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        
-
+    
         fetch(`${apiURL}/vintage`,{
             method: "POST",
-            body: JSON.stringify(formData),
+            body: JSON.stringify(vintageData),
             headers: {
                 "Content-Type": "application/json",
             }
@@ -42,17 +37,18 @@ function CreatePage() {
         })
         .catch((error)=>{
             console.log(error)
-            setSubmitForm("error")
-        })       
+            setVintageData("error")
+        })  
+        const handleSubmit = (event) => {
+            event.preventDefault();
+             
+         
     
     }
     return (
         <div>
   
-
-
-           
-            {/* <h1>Add Vintage Clothing Item</h1> */}
+            <h1>Add Vintage Clothing Item</h1>
 
                 {/* Form fields */}
                 {/* Rest of your form */}
@@ -63,9 +59,9 @@ function CreatePage() {
                     Name:
                     <input
                     type="text"
-                    value={formData.name}
-                    placeholder= "Name"
-                    onChange={(event)=> handleChange(event)}
+                    value={vintageData.name}
+                    placeholder="Name"
+                    onChange={handleTextChange}
                     required
                     />
                 </label>
@@ -73,16 +69,36 @@ function CreatePage() {
                     Style:
                     <input
                     type="text"
-                    value={formData.style}
-                    placeholder= "Style"
-                    onChange={(event) => handleChange(event)} 
+                    value={vintageData.style}
+                    placeholder="Style"
+                    onChange={handleTextChange} 
                     required/>
-
-
+                </label>
+                <label htmlFor="Category">
+                    Category:
+                    <input
+                    type="text"
+                    value={vintageData.category}
+                    placeholder="Category"
+                    onChange={handleTextChange}
+                    required />
 
                 </label>
-        <button type="submit">submit</button>
                 
+                   
+                    <label htmlFor="price">
+                         Price:
+                        <input
+                        type="number"
+                        value={vintageData.price}
+                        placeholder="Price"
+                        onChange={handleTextChange}
+                        required />
+
+                        </label>
+                
+        <button type="submit">submit</button>
+                <input type="submit">submit</input>
             </form>
         </div>
    ) 
